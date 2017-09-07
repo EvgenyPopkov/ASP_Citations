@@ -1,0 +1,54 @@
+﻿@model Citations.Models.Citation
+@{
+    ViewData["Title"] = "Цитатник";
+}
+
+<div class="filter-create">
+    <p>Фильтр цитат</p>
+    <div class="row filter">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <input id="text" placeholder="Текст в цитате"/>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <input id="author" placeholder="Автор" />
+        </div>
+    </div>
+    <hr />
+    <form asp-controller="Home" asp-action="Create" method="post" class="create">
+        <textarea id="create-text" asp-for="Text" placeholder="Цитата"></textarea>
+        <span id="create-text-required" class="text-danger required">Обязательное поле</span>
+        <span id="create-text-more" class="text-danger">Слишком много символов</span>
+        <input id="create-author" asp-for="Author" placeholder="Автор" />
+        <span id="create-author-required" class="text-danger required">Обязательное поле</span>
+        <span id="create-author-more" class="text-danger">Слишком много символов</span>
+        <select asp-for="Category.Name">
+            <option selected>Без категории</option>
+            @foreach (var category in ViewBag.Categories)
+            {
+                <option>@category.Name</option>
+            }
+        </select>
+        <button id="btn-create" type="submit" class="btn btn-success" disabled>Создать цитату</button>
+    </form>
+</div>
+
+<section data-bind="foreach: citations">
+    <div class="row citation">
+        <div class="col-lg-1- col-md-10 col-sm-ё0 col-xs-8">
+            <p>"<i data-bind="text: text"></i>"</p>
+            <hr />
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <b data-bind="text: author"></b>&emsp;
+                    <b data-bind="text: date"></b>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <b data-bind="text: category"></b>
+                </div>
+            </div>
+        </div>
+        <div id="actions0" class="col-lg-2 col-md-2 col-sm-2 col-xs-8">
+            <a href="#" data-bind="click: $parent.delete" class="btn btn-danger">Удалить</a>
+        </div>
+    </div>
+</section>

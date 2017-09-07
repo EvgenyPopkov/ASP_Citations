@@ -1,0 +1,26 @@
+﻿@model Citations.Models.Citation
+
+<form asp-action="Update" asp-controller="Home" method="post" asp-route-id="@Model.Id">
+    <div class="form-group">
+        <textarea id="update-text" asp-for="Text" placeholder="Цитата"></textarea>
+        <span id="update-text-required" class="text-danger">Обязательное поле</span>
+        <span id="update-text-more" class="text-danger">Слишком много символов</span>
+    </div>
+    <div class="form-group">
+        <input id="update-author" asp-for="Author" placeholder="Автор" />
+        <span id="update-author-required" class="text-danger">Обязательное поле</span>
+        <span id="update-author-more" class="text-danger">Слишком много символов</span>
+    </div>
+    <div class="form-group">
+        <select asp-for="Category.Name" class="form-control">
+            <option>Без категории</option>
+            @foreach (var category in ViewBag.Categories)
+            {
+                <option>@category.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <button id="btn-update" type="submit" class="btn btn-primary">Изменить цитату</button>
+    </div>
+</form>

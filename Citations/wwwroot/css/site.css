@@ -1,0 +1,72 @@
+﻿html, body {
+    padding: 0;
+    margin: 0;
+}
+
+.body-content {
+    min-height: 100vh;
+    width: 100vw;
+    padding: 30px 20%;
+    margin: 0;
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.citation {
+    background-color: white;
+    border-radius: 20px;
+    margin: 30px auto;
+    padding: 20px 10px;
+    color: black;
+    font-size: 18px;
+}
+
+hr {
+    border-color: rgba(0,0,0,0.3);
+}
+
+.citation i {
+    color: rgba(0,0,0,0.7);
+    font-size: 16px;
+}
+
+.filter-create {
+    background-color: white;
+    border-radius: 20px;
+    border: 2px solid #5cb85c;
+    padding: 20px 10px;
+}
+
+.filter-create > p {
+    font-size: 18px;
+}
+
+.create textarea, .create input, .create select {
+    display: block;
+    margin: 10px auto;
+    width: 300px;
+}
+
+textarea {
+    height: 100px;
+}
+
+.citation a {
+    margin: 5px auto;
+}
+
+span {
+    display: none;
+}
+
+.required {
+    display:block;
+}
+
+#create-text, #create-author {
+    border: 2px solid red;
+}
+
+#update-text, #update-author {
+    border: 2px solid green;
+}
